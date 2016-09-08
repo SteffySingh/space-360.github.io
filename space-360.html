@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+
+
+    <title>jQuery UI Draggable - Snap to element or grid</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <!--<link rel="stylesheet" href="/resources/demos/style.css">-->
+
+
+    <link rel="stylesheet" href="space-360.css">
+
+
+</head>
+
+<body>
+
+<!--<header>-->
+<!--&lt;!&ndash;<div>&ndash;&gt;-->
+<!--&lt;!&ndash;<p>logo and stuff</p>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="total">&ndash;&gt;-->
+<!--&lt;!&ndash;<p>Total Price: $198</p>&ndash;&gt;-->
+<!--&lt;!&ndash;<img src="icons-cart.png" alt="Cart">&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</header>-->
+
+
+
+<section>
+
+    <!--<div class="viewer"></div>-->
+    <div id="map" class="viewer"></div>
+
+    <nav>
+        <!--<form id="form1" runat="server">-->
+        <!--<input type='file' id="imgInp" />-->
+        <!--<img id="blah" src="#" alt="your image" />-->
+        <!--</form>-->
+        <!--<p><a class="active1" href="#bedroom">Bedroom</a></p>-->
+        <!--<p><a class="active2" href="#Livingroom">Livingroom</a></p>-->
+        <!--<p><a class="active3" href="#Children's">Children's</a></p>-->
+        <!--<p><a class="active4" href="#For Business">For Business</a></p>-->
+        <!--<p><a class="active5" href="#Kitchen">Kitchen</a></p>-->
+        <!--<p><a class="active6" href="#Outdoon">Outdoor</a></p>-->
+
+
+        <!--<a class="active7" href="url">+Add Image</a>-->
+        <!--<button id="myBtn" class="active8" href="url">Save Designs</button>-->
+
+        <!--<div class="newheader">-->
+        <!--<p> <a class="new" href="#">Bedroom</a></p>-->
+        <!--<p><a class="new" href="#">Livingroom</a></p>-->
+        <!--</div>-->
+
+
+        <!--&lt;!&ndash;<div> <img id="blah1" class="more" src="#" alt="your image"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<span class="close">×</span>&ndash;&gt;-->
+        <!--</div>-->
+
+
+        <div class="sidebar-items">
+        </div>
+
+        <fieldset>
+            <label for="rooms"><b>A.</b> Select Category<br>
+                of your Room<br></label>
+            <select class="room-changer" name="rooms" id="rooms">
+                <option value="select">Select:</option>
+                <option value="bedroom">Bedroom</option>
+                <option value="bathroom">Bathroom</option>
+                <option value="livingroom">Livingroom</option>
+                <option value="kitchen">Kitchen</option>
+                <option value="outdoor">Outdoor</option>
+                <option value="laundry">Laundry</option>
+                <option value="storage">Storage</option>
+            </select>
+        </fieldset>
+
+        <div class="line"></div>
+        </div>
+
+        <div class="heading">
+            <p><b>B.</b> Upload 360-Degree<br>Image</br></p>
+
+            <form id="form1" runat="server">
+                <input type='file' id="imgInp" />
+            </form>
+        </div>
+
+        <div class="line"></div>
+        </div>
+
+        <div class="nextstep">
+            <p><b>C. </b>Let's Decor,<br>SELECT ITEMS</br>from the SideBar</p>
+        </div>
+
+        <div class="line"></div>
+        </div>
+
+        <a id="myBtn" class="active8" href="#Outdoon"><p><b>D.</b>Save Designs</p></a>
+
+        <div class="line"></div>
+        </div>
+
+    </nav>
+
+    <div id="outerbox" class="outer">
+        <span class="close">×</span>
+        <div class="box1">
+            <p><b>Log-in</b>.</p>
+            <p>We would like to remind our customers that periodically changing
+                passwords to keep personal information secure is always a good
+                practice</p>
+
+            <form>
+                <fieldset class="account-info">
+                    <label>
+                        Username
+                        <input type="text" name="username">
+                    </label>
+                    <label>
+                        Password
+                        <input type="password" name="password">
+                    </label>
+                </fieldset>
+                <fieldset class="account-action">
+                    <input class="btn" type="submit" name="submit" value="Login">
+                    <label>
+                        <input type="checkbox" name="remember"> Stay signed in
+                    </label>
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="box2">
+            <p><b>Sign-up</b>.</p>
+            <p>You going to love your new account &#9787 </p>
+            <form>
+                <fieldset class="account-info2">
+                    <label>
+                        Username
+                        <input type="text" name="username">
+                    </label>
+                    <label>
+                        E-mail
+                        <input type="email" name="email">
+                    </label>
+                    <label>
+                        Country
+                        <input type="country" name="country">
+                    </label>
+                    <label>
+                        Password
+                        <input type="pass" name="pass">
+                    </label>
+                    <label>
+                        Confirm Password*
+                        <input type="password" name="password">
+                    </label>
+
+
+                </fieldset>
+                <fieldset class="account-action">
+                    <input class="btn" type="submit" name="submit" value="Sign-up">
+                    <label>
+                        <input type="checkbox" name="remember"> Remember me
+                    </label>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+
+    <!--<div class="savethis">-->
+    <!--<button id="myBtn1" class="save-image">-->
+    <!--<img src="save2.png"></button>-->
+    <!--<div class="dropdown-content1">-->
+    <!--<a href="#">Bedroom1</a>-->
+    <!--<a href="#">Livingroom</a>-->
+    <!--<a href="#">Children's Room</a>-->
+    <!--<a href="#">For Business</a>-->
+    <!--<a href="#">Bathroom</a>-->
+    <!--<a href="#">Outdoor</a>-->
+
+    <!--</div>-->
+    <!--</div>-->
+
+
+    <aside>
+
+        <div class="dropdown">
+            <button class="dropbtn">Select Items</button>
+
+
+
+            <div class="dropdown-content">
+                <a class="zz" href="#">None</a>
+                <a class="aa" href="#">Sofas</a>
+                <a class="bb" href="#">ArmChairs</a>
+                <a class="cc" href="#">Media & TV Room</a>
+                <a class="dd" href="#">Storage</a>
+                <a class="ee" href="#">Coffee & SideTables</a>
+                <a class="ff" href="#">Lighting</a>
+                <a class="gg" href="#">Textiles</a>
+                <!--<a class="hh" href="#">Beds</a>-->
+                <a class="kk" href="#">Mirrors</a>
+            </div>
+
+
+            <div class="line"></div>
+        </div>
+        <!--<div class="home-furniture">-->
+
+        <div id="nothing" class="none drag-item">
+
+        </div>
+
+        <div id="furniture" data-furniture="Fluffy sofa 40 inches-deep, 60 inches-long" class="furniture-items drag-item">
+            <img src="Furniture/couch-576128_960_720.png" alt="sofa">
+        </div>
+
+        <div id="furniture1" data-furniture="Firm sofa" class="furniture-items drag-item">
+            <img src="Furniture/couch-576125_960_720.png" alt="sofa">
+        </div>
+        <div id="furniture2" data-furniture="Firm sofa" class="furniture-items drag-item">
+            <img src="Furniture/sofa_png_by_fear_25-d4np2wo.png" alt="sofa">
+        </div>
+
+        <div id="furniture3"  data-furniture="Fluffy sofa 37 inches-deep, 58 inches-long" class="furniture-items drag-item">
+            <img src="Furniture/sofa_PNG6925.png" alt="sofa">
+        </div>
+
+        <div id="furniture4" data-furniture="Fluffy sofa"  class="furniture-items drag-item">
+            <img src="Furniture/couch-576036_960_720.png" alt="sofa">
+        </div>
+
+        <div id="furniture5"  data-furniture="Fluffy sofa 40 inches-deep, 60 inches-long" class="furniture-items drag-item">
+            <img src="Furniture/bench_png_stock_by_doloresdevelde-d56tz4n.png" alt="sofa">
+        </div>
+
+        <div id="furnitur6"  data-furniture="Fluffy sofa 40 inches-deep, 60 inches-long" class="furniture-items drag-item">
+            <img src="Furniture/furniture-158725_960_720.png" alt="sofa">
+        </div>
+
+        <div id="furniture7"  data-furniture="Fluffy sofa 40 inches-deep, 60 inches-long" class="furniture-items drag-item">
+            <img src="Furniture/couch-576128_960_720.png" alt="sofa">
+        </div>
+
+        <div id="furniture8"  data-furniture="Fluffy sofa 40 inches-deep, 60 inches-long" class="furniture-items drag-item">
+            <img src="Furniture/couch-576125_960_720.png" alt="sofa">
+        </div>
+
+        <div id="furnitur9"  data-furniture="Fluffy sofa 40 inches-deep, 60 inches-long" class="furniture-items drag-item">
+            <img src="Furniture/furniture-158725_960_720.png" alt="sofa">
+        </div>
+
+
+        <div class="CHAIRS">
+            <div id="armchair"  data-furniture="Street Guard Chairs" class="arm-chair drag-item">
+                <img src="Furniture/STEAKING2.png">
+            </div>
+
+            <div id="armchair1" data-furniture=" Klismos Chair" class="arm-chair drag-item">
+                <img src="Furniture/steamer_green__68441_zoom.png">
+            </div>
+
+            <div id="armchair2" data-furniture="10 Downing Street Guard Chairs" class="arm-chair drag-item">
+                <img src="Furniture/wooden-575885_960_720.png">
+            </div>
+
+            <div id="armchair3" data-furniture="Wing Chair" class="arm-chair drag-item">
+                <img src="Furniture/sofa-575774_960_720.png">
+            </div>
+
+            <div id="armchair4" data-furniture="Wing Chair" class="arm-chair drag-item">
+                <img src="Furniture/wooden-575885_960_720.png">
+            </div>
+
+            <div id="armchair5" data-furniture="Club Chair" class="arm-chair drag-item">
+                <img src="Furniture/chair-575770_960_720.png">
+            </div>
+
+            <div id="armchair6" data-furniture="Club Chair" class="arm-chair drag-item">
+                <img src="Furniture/bench_png_stock_by_doloresdevelde-d56tz4n.png">
+            </div>
+        </div>
+
+
+        <div id="Media" class="media-furniture drag-item">
+            <p>No Items</p>
+        </div>
+
+
+        <div id="Sto" class="storage-furniture drag-item">
+            <p>No Items</p>
+        </div>
+
+
+        <div id="coffee" class="coffee-table drag-item">
+            <p>No Items</p>
+        </div>
+
+        <div class="LIGHT">
+
+            <div id="homelights" data-furniture="Ambient Light" class="lighting drag-item">
+                <img src="Furniture/054da6f5903fd5f79811bd361c701723.jpg">
+            </div>
+
+            <div id="homelights1" data-furniture="Ambient Light" class="lighting drag-item">
+                <img src="Furniture/light-575863_960_720.png">
+            </div>
+
+            <div id="homelights2" data-furniture="Ambient Light" class="lighting drag-item">
+                <img src="Furniture/chandelier-575852_960_720.png">
+            </div>
+            <div id="homelights3" data-furniture="Ambient Light" class="lighting drag-item">
+                <img src="Furniture/light-575850_960_720.png">
+            </div>
+            <div id="homelights4" data-furniture="Ambient Light" class="lighting drag-item">
+                <img src="Furniture/table-lamp-960976_960_720.png">
+            </div>
+            <div id="homelights5" data-furniture="Ambient Light" class="lighting drag-item">
+                <img src="Furniture/table-lamp-960976_960_720.png">
+            </div>
+        </div>
+
+
+        <div class="MIRR">
+            <div id="homemiror" data-furniture="Plane Mirror" class="mirrors drag-item">
+                <img src="Furniture/005646.1L.jpg">
+            </div>
+
+            <div id="homemiror1" data-furniture="Designer Mirror" class="mirrors drag-item">
+                <img src="Furniture/13534270816216.png">
+            </div>
+
+            <div id="homemiror2" data-furniture="Designer Mirror" class="mirrors drag-item">
+                <img src="Furniture/frame,espejo,ornamentos,vintage,png%20(1).png">
+            </div>
+
+            <div id="homemiror3" data-furniture="Plane Mirror" class="mirrors drag-item">
+                <img src="Furniture/mirror-37300_960_720.png">
+            </div>
+
+            <div id="homemiror4" data-furniture="Plane Mirror" class="mirrors drag-item">
+                <img src="Furniture/Red_Transparent_PNG_Frame_with_Hearts_and_Bows.png">
+            </div>
+
+            <div id="homemiror5" data-furniture="Designer Mirror" class="mirrors drag-item">
+                <img src="Furniture/oddyellowframe.png">
+            </div>
+
+            <div id="homemiror6" data-furniture="Designer Mirror" class="mirrors drag-item">
+                <img src="Furniture/mirror-37300_960_720.png">
+            </div>
+
+            <div id="homemiror7" data-furniture="Designer Mirror" class="mirrors drag-item">
+                <img src="Furniture/red_frame_by_spidergypsy-d4pzuiq.png">
+            </div>
+
+            <div id="homemiror8" data-furniture="Designer Mirror" class="mirrors drag-item">
+                <img src="Furniture/Wooden_crafted_mirror_frame.png">
+            </div>
+
+            <div id="homemiror9" data-furniture="Designer Mirror" class="mirrors drag-item">
+                <img src="Furniture/005646.1L.jpg">
+            </div>
+
+            <div id="homemiror10" data-furniture="Designer Mirror" class="mirrors drag-item">
+                <img src="Furniture/005646.1L.jpg">
+            </div>
+        </div>
+        </div>
+
+
+    </aside>
+
+
+</section>
+
+<!--<div class="room-names">-->
+<!--<button class="room">Bedroom </button>-->
+<!--<button class="room">Livingroom</button>-->
+<!--<button class="room">Children's Room</button>-->
+<!--<button class="room">For Business</button>-->
+<!--<button class="room">Bathroom</button>-->
+<!--<button class="room">Outdoors</button>-->
+<!--<a href="url">+Add Image</a>-->
+
+<!--</div>-->
+
+
+<!--<footer>-->
+
+
+<!--</footer>-->
+
+<img src="Furniture/360med.jpg" alt="" style="visibility: hidden; position: absolute; z-index: -1" id="base-pic">
+<canvas id="myCanv" style="visibility: hidden; position: absolute; z-index: -1"></canvas>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFxUYBDED4TPBOvR83flQeXD7KxtwXHkI&callback=initPano">
+</script>
+<script src="space-360.js"></script>
+
+</body>
+</html>
+
